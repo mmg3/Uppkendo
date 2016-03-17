@@ -1,0 +1,194 @@
+#uppkendo .image-with-text img {
+    float: left;
+    margin-right: 15px;
+}
+
+#uppkendo .block {
+    display: block;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+}
+
+#uppkendo .button-group,
+#uppkendo .icon-group {
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+#uppkendo .button-group {
+    table-layout: fixed;
+}
+
+#uppkendo .button-group .km-button {
+    display: table-cell;
+    padding: .6em .8em;
+    margin: 1em 0;
+}
+
+#uppkendo .button-group.button-group-vertical .km-button {
+    display: block;
+}
+
+#uppkendo.km-flat .button-group .km-button.primary {
+    color: #fff;
+    background-color: #10c4b2;
+}
+
+#uppkendo.km-ios7 .button-group .km-button.primary {
+    color: #fff;
+    background-color: #007aff;
+}
+
+#uppkendo.km-android .button-group .km-button.primary {
+    color: #fff;
+    background-color: #33b5e5;
+}
+
+#uppkendo .group-separator {
+    border: none;
+    background: transparent;
+}
+
+#uppkendo .group-separator-header {
+    margin: 1em 0;
+}
+
+#uppkendo .app-icon {
+    text-align: center;
+    margin: 3em 0;
+}
+
+#uppkendo .view-title {
+    text-align: center;
+    font-weight: normal;
+}
+
+#uppkendo .km-drawer-button:after,
+#uppkendo .km-drawer-button:before {
+    content: '\e077';
+}
+
+#uppkendo.km-flat .km-drawer .km-content {
+    background-color: #fcfcfc;
+}
+
+#uppkendo form .form-content li p {
+    margin: 0;
+}
+
+#uppkendo .icon-group .app-icon,
+#uppkendo .icon-group .app-details {
+    display: table-cell;
+    vertical-align: top;
+}
+
+#uppkendo .icon-group .app-icon {
+    margin: 0;
+    width: 5em;
+    overflow: hidden;
+    text-align: left;
+}
+
+#uppkendo .icon-group .app-icon img {
+    display: block;
+    max-width: 5em;
+    height: auto;
+}
+
+#uppkendo .icon-group .app-details h2,
+#uppkendo .icon-group .app-details h4 {
+    font-weight: normal;
+    margin: 0;
+}
+
+#uppkendo .icon-group .app-details h4 {
+    color: #828282;
+    margin-top: 0.5em;
+}
+
+#uppkendo #navigation-container.km-tabstrip .km-button {
+    vertical-align: top;
+}
+
+#uppkendo #navigation-container.km-tabstrip .km-button .km-text {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+#uppkendo #navigation-container .active {
+    background: #10c4b2;
+    color: #fff;
+}
+
+#uppkendo #navigation-container .active:after {
+    color: #fff;
+}
+
+#uppkendo.km-nova #navigation-container.km-tabstrip .km-button {
+    vertical-align: middle;
+}
+
+#uppkendo.km-nova p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#uppkendo.km-nova span.km-switch.km-switc {
+    color: #ff4350;
+}
+
+#uppkendo.km-nova span.km-switch.km-switch-on input[type=checkbox]:checked + span + span {
+    border-color: #ff4350;
+    background-color: #ff4350;
+}
+
+
+/* START_CUSTOM_CODE_uppkendo */
+
+
+.km-root .km-android .km-view {
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+}
+
+.km-android .km-view-title
+{
+    visibility: visible;
+    text-align: center;
+}
+
+div.k-loading-mask
+{
+    z-index: 3; /* must be larger than the z-index:2 of #container */
+}
+.modall {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('loading.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+.fab {
+    background-color: red;
+    border-radius: 100%;
+    border-style: hidden;
+    position: absolute;
+    top: 90%;
+    left: 70%;
+    width: 5em;
+    height: 5em;
+    font-weight: bolder;
+    color: white;
+    background-image: url('Very-Basic-Reload-icon.png');
+    background-size: cover;
+}

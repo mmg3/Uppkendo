@@ -1,0 +1,16 @@
+<div id="vista_add" data-role="view" data-title="agregar View" data-layout="main" data-model="app.agregarView" data-show="app.agregarView.onShow" data-after-show="app.agregarView.afterShow">
+    <ul id="tareas" style="font-size:0.9em;"></ul>
+    <h2>Agregar Tarea</h2>
+    <div class="addform">
+        <ul data-role="listview" data-style="inset">
+            <li class="username"><label>Usuario:<select id="usuariosLista" style="width: 70%;" ></select></label></li>
+            <li class="username"><label>Comite:<select id="comiteLista" value="" style="width: 70%;" ></select></label></li>
+            <li class="username"><label>Subcomite:<select id="subcomiteLista" value="" style="width: 70%;" ></select></label></li>
+            <li class="username"><label>Limite:<input type="date" id="fechaFin" style="width: 70%" /></label></li>
+            <li class="username"><label>Actividad:<input id="tema" value="" style="width: 100%;" /></label></li>
+            <li><label>Instrucciones: <textarea style='width:100%' id='instrucciones' ></textarea></label></li>
+            <li><label>Resultado: <textarea style='width:100%' id='resultado' ></textarea></label></li>
+            <a data-role="button" style="width:100%" data-click="onClickGuardaTarea">Asignar</a>
+        </ul>
+    </div>
+</div>

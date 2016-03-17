@@ -1,0 +1,11 @@
+<div data-role="view" data-title="Login View" data-layout="mainLogin" data-model="app.loginView" data-show="app.loginView.onShow" data-after-show="app.loginView.afterShow">
+    <h2>Login</h2>
+    <div class="loginform">
+        <ul data-role="listview" data-style="inset">
+            <li class="username"><label>Usuario:<input type="text" id="username" placeholder="usuario" required validationMessage="Este campo es requerido!"></label></li>
+
+            <li class="password"><label>Password:<input type="password" id="password" placeholder="password" required validationMessage="Este campo es requerido!"></label></li>
+            <a data-role="button" style="width:100%" data-click="onClick">Login</a>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div id="vista_usuario" data-role="view" data-title="Usuario View" data-layout="main" data-model="app.usuarioView" data-show="app.usuarioView.onShow" data-after-show="app.usuarioView.afterShow">
+    <h2>Datos de Usuario</h2>
+    <div class="userform" id="userForm">
+        <ul data-role="listview" data-style="inset">
+            <li class="username" style="display:none; "><label>UsuarioId: </label><label id="idUsuario"></label></li>
+            <li class="username"><label>Usuario: </label><label id="textoUsuario"></label></li>
+            <li class="username"><label>Nombre: <input type="text" id="nombreUsuario" required validationMessage="Este campo es requerido!" /></label></li>
+            <li class="username"><label>Apellido: <input type="text" id="apellidoUsuario" required validationMessage="Este campo es requerido!" /></label></li>
+            <li class="username"><label>E-mail: <input type="email" id="mailUsuario" required validationMessage="Este campo es requerido!" /></label></li>
+        </ul>
+        <a data-role="button" style="width:100%" data-click="onClickGuardaUsuario">Guardar</a>
+    </div>
+    
+</div>
