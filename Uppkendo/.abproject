@@ -2,7 +2,7 @@
   "ProjectName": "Uppkendo",
   "ProjectGuid": "{38f49c87-f3c9-40cb-b062-89daf1a4c0bc}",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.Uppkendo",
+  "AppIdentifier": "com.grupoconfia.Uppkendo",
   "DisplayName": "Upp",
   "Author": "Guido Guerrero",
   "Description": "Upp",
@@ -14,7 +14,7 @@
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "3.7.0",
+  "FrameworkVersion": "4.0.0",
   "AndroidPermissions": [
     "android.permission.INTERNET"
   ],
@@ -22,7 +22,7 @@
     "Portrait",
     "Landscape"
   ],
-  "AndroidHardwareAcceleration": "false",
+  "AndroidHardwareAcceleration": "true",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
   "WP8TileTitle": "",
@@ -42,6 +42,7 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
+  "iOSDeploymentTarget": "6.0",
   "CorePlugins": [
     "com.phonegap.plugins.PushPlugin@3.1.1"
   ]

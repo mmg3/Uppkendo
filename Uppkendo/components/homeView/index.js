@@ -178,7 +178,7 @@ function guardaActualizacion(e)
         
         if(!actualizaTarea)
         {
-            window.plugins.toast.showShortBottom('Por favor agregue el texto de acrualizacion.');
+            window.plugins.toast.showShortBottom('Por favor agregue el texto de actualizacion.');
             return;
         }
         
@@ -286,12 +286,12 @@ app.loginView = kendo.observable({
 					catch(ex)
 					{
 						//alert('Error al procesar la solicitud: '+ex.description);
-						window.plugins.toast.showShortBottom('Error al procesar su información.')
+						window.plugins.toast.showShortBottom('Error al procesar la información.')
 						//$("#cedula").val('');
 					}
 				},
 				error: function( xhr, textStatus, errorThrown ) {
-							window.plugins.toast.showShortBottom('Error al procesar su información.')
+							window.plugins.toast.showShortBottom('Error al procesar la información.')
 							console.log( "HTTP Status: " + xhr.status );
 							console.log( "Error textStatus: " + textStatus );
 							console.log( "Error thrown: " + errorThrown );
@@ -527,12 +527,12 @@ function onClickGuardaTarea(e)
                 catch(ex)
                 {
                     //alert('Error al procesar la solicitud: '+ex.description);
-                    window.plugins.toast.showShortBottom('Error al procesar su información.')
+                    window.plugins.toast.showShortBottom('Error al procesar la información.')
                     //$("#cedula").val('');
                 }
             },
             error: function( xhr, textStatus, errorThrown ) {
-                        window.plugins.toast.showShortBottom('Error al procesar su información.')
+                        window.plugins.toast.showShortBottom('Error al procesar la información.')
                         console.log( "HTTP Status: " + xhr.status );
                         console.log( "Error textStatus: " + textStatus );
                         console.log( "Error thrown: " + errorThrown );
@@ -601,12 +601,12 @@ app.usuarioView = kendo.observable({
                 catch(ex)
                 {
                     //alert('Error al procesar la solicitud: '+ex.description);
-                    window.plugins.toast.showShortBottom('Error al procesar su información.')
+                    window.plugins.toast.showShortBottom('Error al procesar la información.')
                     //$("#cedula").val('');
                 }
             },
             error: function( xhr, textStatus, errorThrown ) {
-                        window.plugins.toast.showShortBottom('Error al procesar su información.')
+                        window.plugins.toast.showShortBottom('Error al procesar la información.')
                         console.log( "HTTP Status: " + xhr.status );
                         console.log( "Error textStatus: " + textStatus );
                         console.log( "Error thrown: " + errorThrown );
@@ -667,12 +667,12 @@ function onClickGuardaUsuario(e)
                 catch(ex)
                 {
                     //alert('Error al procesar la solicitud: '+ex.description);
-                    window.plugins.toast.showShortBottom('Error al procesar su información.')
+                    window.plugins.toast.showShortBottom('Error al procesar la información.')
                     //$("#cedula").val('');
                 }
             },
             error: function( xhr, textStatus, errorThrown ) {
-                        window.plugins.toast.showShortBottom('Error al procesar su información.')
+                        window.plugins.toast.showShortBottom('Error al procesar la información.')
                         console.log( "HTTP Status: " + xhr.status );
                         console.log( "Error textStatus: " + textStatus );
                         console.log( "Error thrown: " + errorThrown );
@@ -722,3 +722,7 @@ function baseProtocol() {
     //return 'https';
     return 'http';
 }
+
+function onPushNotificationReceived(e) {
+    alert(JSON.stringify(e));
+};

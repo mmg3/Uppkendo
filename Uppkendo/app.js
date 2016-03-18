@@ -35,7 +35,7 @@
                     });
                 }
             }
-
+            console.log(cordova.file);
             bootstrap();
         }, false);
     } else {
