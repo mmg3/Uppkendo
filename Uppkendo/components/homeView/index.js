@@ -170,7 +170,9 @@ function guardaActualizacion(e)
         
         var estado = $('#estado').val();
         
-        var fechaFin = $('#fechaNueva').val();
+        var fechaFinaliza = $('#fechaNueva').val().split("-");
+        
+        var fechaFin = fechaFinaliza[0]+'-'+fechaFinaliza[1]+'-'+fechaFinaliza[2];
 
         var actualizaTarea = $('#actualizaTarea').val();
         
@@ -182,9 +184,9 @@ function guardaActualizacion(e)
         
         var jsonTarea = {"estadoId": estado, "fechaFinaliza": fechaFin, "resultado": actualizaTarea, "solicitudId": solicitudId, "ubicacionAdjunto": "", "usuarioId": id};
         
-        //console.log(JSON.stringify(jsonTarea));
+        console.log(JSON.stringify(jsonTarea));
         //var jsonData = JSON.parse( jsonTarea ); 
-        
+        //return;
         $.ajax({
             data: JSON.stringify(jsonTarea),
             type: "POST",
@@ -201,12 +203,12 @@ function guardaActualizacion(e)
                 catch(ex)
                 {
                     //alert('Error al procesar la solicitud: '+ex.description);
-                    window.plugins.toast.showShortBottom('Error al procesar su información.')
+                    window.plugins.toast.showShortBottom('Error al procesar la información.')
                     //$("#cedula").val('');
                 }
             },
             error: function( xhr, textStatus, errorThrown ) {
-                        window.plugins.toast.showShortBottom('Error al procesar su información.')
+                        window.plugins.toast.showShortBottom('Error al procesar la información.')
                         console.log( "HTTP Status: " + xhr.status );
                         console.log( "Error textStatus: " + textStatus );
                         console.log( "Error thrown: " + errorThrown );
