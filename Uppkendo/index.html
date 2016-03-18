@@ -5,10 +5,9 @@
     <title></title>
     <meta charset="utf-8">
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
-
     <link href="styles/main.css" rel="stylesheet">
-
     <script src="cordova.js"></script>
+    <script src="https://bs-static.cdn.telerik.com/1.6.8/everlive.all.min.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
@@ -19,24 +18,43 @@
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
-                <span data-role="view-title"></span>
+                <span data-role="km-view-title">UPP</span>
+                <a href="#mainMenu" data-rel="drawer" data-role="button" data-icon="drawer-icon" data-align="left" ></a>
             </div>
         </header>
-        <footer data-role="footer">
-            <div data-role="tabstrip" id="navigation-container">
-                <a href="components/homeView/view.html" data-icon="home">Home View</a>
-            </div>
-        </footer>
-    </div>
 
-    <div data-role="layout" data-id="main-nonav">
+        <!-- application views will be rendered here -->
+    </div>
+    <div data-role="layout" data-id="mainRefresh">
         <header data-role="header">
             <div data-role="navbar">
-                <span data-role="view-title"></span>
+                <span data-role="km-view-title">UPP</span>
+                <a href="#mainMenu" data-rel="drawer" data-role="button" data-icon="drawer-icon" data-align="left" ></a>
+<!--                <a href="#" data-role="button" onClick="refrescaTareas()" data-icon="refresh" data-align="right" ></a>-->
             </div>
         </header>
-        <footer data-role="footer">
-        </footer>
+
+        <!-- application views will be rendered here -->
+    </div>
+    <div data-role="layout" data-id="mainLogin">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="km-view-title">UPP</span>
+                <a href="#mainMenu" data-rel="drawer" data-role="button" data-icon="drawer-icon" data-align="left" disabled ></a>
+            </div>
+        </header>
+
+        <!-- application views will be rendered here -->
+    </div>
+    <div data-role="layout" data-id="mainBack">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="km-view-title">UPP</span>
+                <a data-role="backbutton" data-align="left" data-icon="history" >Back</a>
+            </div>
+        </header>
+
+        <!-- application views will be rendered here -->
     </div>
     <!-- START_CUSTOM_CODE_uppkendo -->
     <div data-role="drawer" id="mainMenu" data-swipe-to-open="false">
@@ -48,7 +66,7 @@
             <li><a href="#components/homeView/logOutView.html">Cerrar Sesión</a></li>
         </ul>
     </div>
-
+    
     <!-- END_CUSTOM_CODE_uppkendo -->
 </body>
 

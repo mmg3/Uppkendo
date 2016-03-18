@@ -32,6 +32,21 @@
     display: block;
 }
 
+#uppkendo.km-flat .button-group .km-button.primary {
+    color: #fff;
+    background-color: #10c4b2;
+}
+
+#uppkendo.km-ios7 .button-group .km-button.primary {
+    color: #fff;
+    background-color: #007aff;
+}
+
+#uppkendo.km-android .button-group .km-button.primary {
+    color: #fff;
+    background-color: #33b5e5;
+}
+
 #uppkendo .group-separator {
     border: none;
     background: transparent;
@@ -62,7 +77,6 @@
 
 #uppkendo form .form-content li p {
     margin: 0;
-    padding: 0;
 }
 
 #uppkendo .icon-group .app-icon,
@@ -122,7 +136,7 @@
     margin-right: 1rem;
 }
 
-#uppkendo.km-nova span.km-switch {
+#uppkendo.km-nova span.km-switch.km-switc {
     color: #ff4350;
 }
 
@@ -131,170 +145,50 @@
     background-color: #ff4350;
 }
 
-#uppkendo .unsupported-preview {
+
+/* START_CUSTOM_CODE_uppkendo */
+
+
+.km-root .km-android .km-view {
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+}
+
+.km-android .km-view-title
+{
+    visibility: visible;
     text-align: center;
-    margin-top: 12rem;
 }
 
-#uppkendo .info-icon {
-    margin: 0 auto;
-    width: 3.3rem;
-    height: 3.3rem;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABIklEQVRoge3YMU4CURDG8R+KqImGxNoTWNgYqSgtvYBn8EY2nkE7LTwItbGUwhgLFSxgLTS4i4w+SOafTDc73/vydva9HZIkSZIlooNrPM6IK2wUW10DehjXRC9ScC2ymMkOROQ0JtrAv5MGvjAKyinGLgZmN/AAO5GCrchiU9rY9313R7jH2x9oJslvieqBU5z5+Zowwh0ugjTD6OBF/RWiioNI8YhzYBtbc+TvBWh+kiexwt/1CAPPuMR7QK3i9NU3cT9SMHugNGmgNGmgNCtvYD2ozjHOcYLDmtxNHOEJD0H6C9HGUPPbaBXD6bPF6Zp/8VV0FxVf+R6IMLDInGdpZkS35n99biKEo/6JWyazoKaj81eTGdE4SD9JkiRJVpMPXjloDVm2S04AAAAASUVORK5CYII=');
-    background-repeat: no-repeat;
+div.k-loading-mask
+{
+    z-index: 3; /* must be larger than the z-index:2 of #container */
+}
+.modall {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('loading.gif') 
+                50% 50% 
+                no-repeat;
 }
 
-#uppkendo .editableListItem span {
-    float: left;
-}
-
-#uppkendo .km-content .details-content .editableListItem {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-#uppkendo .km-content .details-content p {
-    padding: 1rem;
-    margin: 0;
-}
-
-#uppkendo .km-content .details-content .editableListItem:first-of-type {
-    border-top: 0;
-}
-
-#uppkendo .details-content .editableListItem + .editableListItem {
-    border-top: 0;
-}
-
-#uppkendo .km-content li label:not(.km-label-above) > span:not(.km-widget),
-#uppkendo .editableListItem > span {
-    display: inline-block;
-    word-break: break-word;
-    width: 30%;
-    padding-right: 10px;
-}
-
-#uppkendo .km-content li p {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-#uppkendo .editableListItem {
-    overflow: hidden;
-    width: 100%;
-}
-
-#uppkendo.km-nova .details-content {
-    font-size: 1.2em;
-}
-
-#uppkendo .km-list label:not(.km-label-above) input[type="password"],
-#uppkendo .km-list label:not(.km-label-above) input[type="search"],
-#uppkendo .km-list label:not(.km-label-above) input[type="number"],
-#uppkendo .km-list label:not(.km-label-above) input[type="tel"],
-#uppkendo .km-list label:not(.km-label-above) input[type="url"],
-#uppkendo .km-list label:not(.km-label-above) input[type="email"],
-#uppkendo .km-list label:not(.km-label-above) input[type="month"],
-#uppkendo .km-list label:not(.km-label-above) input[type="color"],
-#uppkendo .km-list label:not(.km-label-above) input[type="week"],
-#uppkendo .km-list label:not(.km-label-above) input[type="date"],
-#uppkendo .km-list label:not(.km-label-above) input[type="time"],
-#uppkendo .km-list label:not(.km-label-above) input[type="datetime"],
-#uppkendo .km-list label:not(.km-label-above) input[type="datetime-local"],
-#uppkendo .km-list label:not(.km-label-above) input[type="text"]:not(.k-input),
-#uppkendo .km-list select:not([multiple]),
-#uppkendo .km-list label:not(.km-label-above) .k-dropdown-wrap,
-#uppkendo .km-list label:not(.km-label-above) textarea,
-#uppkendo .editableListItem > span:last-child {
-    min-width: 70%;
-}
-
-
-/* primary buttons */
-
-#uppkendo.km-flat .button-group .km-button.primary {
-    background-color: #10c4b2;
-}
-
-#uppkendo.km-nova .button-group .km-button.primary {
-    background-color: #ff4350;
-    border-color: #ff4350;
-}
-
-#uppkendo.km-flat .button-group .km-button.primary {
-    color: #fff;
-}
-
-#uppkendo.km-ios7 .button-group .km-button.primary {
-    color: #fff;
-    background-color: #007aff;
-}
-
-#uppkendo.km-android .button-group .km-button.primary {
-    color: #fff;
-    background-color: #33b5e5;
-}
-
-
-/* buttons */
-
-#uppkendo.km-nova .button-group .km-button.primary,
-#uppkendo.km-nova .km-button.km-state-active {
-    color: #fff;
-}
-
-
-/* form label position */
-
-#uppkendo.km-flat .form-content .form-content-item .km-label-above {
-    font-size: 0.8em;
-}
-
-#uppkendo.km-flat .form-content .form-content-item .km-label-above input:not([type='checkbox']):not([type='radio']),
-#uppkendo.km-flat .form-content .form-content-item .km-label-above select:not([multiple]),
-#uppkendo.km-flat .form-content .form-content-item .km-label-hidden input:not([type='checkbox']):not([type='radio']),
-#uppkendo.km-flat .form-content .form-content-item .km-label-hidden select:not([multiple]) {
-    width: 100%;
-    position: static;
-    margin-left: -0.4rem;
-    margin-right: -0.4rem;
-}
-
-#uppkendo.km-flat .form-content .form-content-item .km-label-hidden input:not([type='checkbox']):not([type='radio']),
-#uppkendo.km-flat .form-content .form-content-item .km-label-hidden select:not([multiple]) {
+.fab {
+    background-color: red;
+    border-radius: 100%;
+    border-style: hidden;
     position: absolute;
+    top: 90%;
+    left: 70%;
+    width: 5em;
+    height: 5em;
+    font-weight: bolder;
+    color: white;
+    background-image: url('Very-Basic-Reload-icon.png');
+    background-size: cover;
 }
-
-#uppkendo.km-nova .form-content .form-content-item .km-label-hidden input:not(.k-input):not([type='checkbox']):not([type='radio']),
-#uppkendo.km-nova .form-content .form-content-item .km-label-hidden select:not([multiple]) {
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-}
-
-#uppkendo.km-nova .form-content .form-content-item .km-listview-label.km-label-above {
-    width: auto;
-}
-
-
-/* custom filter */
-
-#uppkendo.km-flat .custom-filter input {
-    font-size: 1.2em;
-    padding: .3em 0 .3em 1.8em;
-}
-
-#uppkendo.km-flat .km-filter-wrap:before {
-    position: absolute;
-    top: .25em;
-}
-
-#uppkendo.km-nova .custom-filter input {
-    padding: .5em 0 .5em 1.8em;
-}
-
-#uppkendo.km-nova .km-filter-wrap:before {
-    color: #cacdce;
-}
-
-undefined
