@@ -195,18 +195,8 @@ function guardaActualizacion(e)
             success: function(data, textStatus, xhr){
                 try
                 {
-                    //alert(data.nombre);
-                    if(data)
-                    {
-                        window.plugins.toast.showShortBottom('Asignacion editada correctamente.')
-                        kendo.history.navigate("#components/homeView/view.html");
-                    }
-                    else
-                    {
-                        $('#password').val('');
-                        //alert('Verifique los datos de acceso.');
-                        window.plugins.toast.showShortBottom('Verifique los datos de acceso.')
-                    }
+                    window.plugins.toast.showShortBottom('Asignacion editada correctamente.')
+                    kendo.history.navigate("#components/homeView/view.html");
                 }
                 catch(ex)
                 {
@@ -529,17 +519,8 @@ function onClickGuardaTarea(e)
             success: function(data, textStatus, xhr){
                 try
                 {
-                    //alert(data.nombre);
-                    if(data)
-                    {
-                        window.plugins.toast.showShortBottom('Asignacion creada correctamente.')
-                        kendo.history.navigate("#components/homeView/view.html");
-                    }
-                    else
-                    {
-                        //alert('Verifique los datos de acceso.');
-                        window.plugins.toast.showShortBottom('Verifique los datos de acceso.')
-                    }
+                    window.plugins.toast.showShortBottom('Asignacion creada correctamente.')
+                    kendo.history.navigate("#components/homeView/view.html");
                 }
                 catch(ex)
                 {
