@@ -6,13 +6,10 @@
     };
 
     var bootstrap = function() {
-		
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                //platform:'ios7',
                 transition: 'slide',
-				layout:"mobile-tabstrip",
-                initial: 'components/homeView/view.html',
+                initial: 'components/homeView/view.html'
             });
         });
     };
@@ -22,41 +19,12 @@
             if (navigator && navigator.splashscreen) {
                 navigator.splashscreen.hide();
             }
-            
-            var element = document.getElementById('appDrawer');
-            if (typeof(element) != 'undefined' && element !== null) {
-                if (window.navigator.msPointerEnabled) {
-                    $('#navigation-container').on('MSPointerDown', 'a', function(event) {
-                        app.keepActiveState($(this));
-                    });
-                } else {
-                    $('#navigation-container').on('touchstart', 'a', function(event) {
-                        app.keepActiveState($(this));
-                    });
-                }
-            }
-            console.log(cordova.file);
             bootstrap();
         }, false);
     } else {
         bootstrap();
     }
-    if (kendo.support.mobileOS.android) {
-        $(document).on({
-            ajaxStart: function() {
-                //alert('Inicio');
-                var $div = $('<div id = "cargando" class="modall"></div>');
-                $("body").append($div);
-                $("#cargando").show().css('display', 'block');
-            },
-            ajaxStop: function() {
-                $("#cargando").show().css('display', 'none');
-                $('#cargando').remove();
-                //alert('Fin');
-            }
-        });
-    }
-	
+
     app.keepActiveState = function _keepActiveState(item) {
         var currentItem = item;
         $('#navigation-container li a.active').removeClass('active');
@@ -75,6 +43,5 @@
 }());
 
 // START_CUSTOM_CODE_uppkendo
-
 
 // END_CUSTOM_CODE_uppkendo

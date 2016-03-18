@@ -1,1 +1,19 @@
-{"type":"kendo-ui-mobile","views":[{"type":"kendo-ui-mobile:view","name":"homeView","components":[],"title":"Home View","addToNavigation":true,"icon":"home"}],"dataProviders":[],"name":"uppkendo","navigation":"tabstrip","view":"homeView","transition":"slide","skin":"native"}
+{
+  "type": "kendo-ui-mobile",
+  "views": [
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "homeView",
+      "components": [],
+      "title": "Home View",
+      "addToNavigation": true,
+      "icon": "home"
+    }
+  ],
+  "dataProviders": [],
+  "name": "uppkendo",
+  "navigation": "tabstrip",
+  "view": "homeView",
+  "transition": "slide",
+  "skin": "native"
+}
