@@ -43,5 +43,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "iOSDeploymentTarget": "6.0",
-  "CorePlugins": []
+  "CorePlugins": [
+    "com.phonegap.plugins.PushPlugin@3.1.1"
+  ]
 }

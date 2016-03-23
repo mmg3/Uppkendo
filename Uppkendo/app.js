@@ -35,22 +35,7 @@
                     });
                 }
             }
-            console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
-            
-            var push = PushNotification.init({
-                android: {
-                    senderID: "970031689994"
-                },
-                ios: {
-                    alert: "true",
-                    badge: "true",
-                    sound: "true"
-                }
-            });
-                                                     
-            push.on('registration', function(data) {
-                document.getElementById("idDispositivo").innerText = data.registrationId;
-            });
+            //console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
             
             bootstrap();
         }, false);

@@ -8,12 +8,13 @@ app.homeView = kendo.observable({
     onShow: function(e) {
 		var hash = localStorage.getItem('hash');
 		var codi = localStorage.getItem('codi');
-		
+		var id = localStorage.getItem('id');
+        
 		if(!codi) {
 			//alert('redirecting...');
 			//var app = new kendo.mobile.Application();
 			kendo.history.navigate("#components/homeView/loginView.html");
-			
+			return;
 		}
         
         /*var networkState = navigator.connection.type;
@@ -40,6 +41,66 @@ app.homeView = kendo.observable({
             return;
         }*/
         
+        var baseDir = baseUrl();
+        var puerto = basePort();
+        var protocolo = baseProtocol();
+        
+        if(!$.trim($("#tareas").html())) {
+            
+            var everlive = new Everlive({
+                appId: '60n1765bfcynawwc',
+                scheme: 'http' // switch this to 'https' if you'd like to use TLS/SSL encryption and if it is included in your subscription tier
+            });
+            
+            var devicePushSettings = {
+                iOS: {
+                    badge: 'true',
+                    sound: 'true',
+                    alert: 'true'
+                },
+                android: {
+                    projectNumber: '970031689994'
+                },
+                wp8: {
+                    channelName: 'EverlivePushChannel'
+                },
+                notificationCallbackIOS: onPushNotificationReceived,
+                notificationCallbackAndroid: onPushNotificationReceived,
+                notificationCallbackWP8: onPushNotificationReceived
+            };
+            
+            everlive.push.register(devicePushSettings, function(data) {
+                //alert("Registro: "+JSON.stringify(data));
+                //alert("Registro: "+data.token);
+                
+                var urls = protocolo+'://'+baseDir+':'+puerto+'/upp-restful/api/usuarios/actualizapush/'+id+'/'+data.token;
+                
+                $.ajax({
+                    data:{},
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json",
+                    crossDomain: true,
+                    url:urls,
+                    success: function(data, textStatus, xhr){
+                        //ok
+                    },
+                    error: function( xhr, textStatus, errorThrown ) {
+                        window.plugins.toast.showShortBottom('Error al procesar la información.')
+                        console.log( "HTTP Status: " + xhr.status );
+                        console.log( "Error textStatus: " + textStatus );
+                        console.log( "Error thrown: " + errorThrown );
+                        return;
+                    }
+                });
+                
+                //alert("Registrado exitosamente!!!");
+            }, function(err) {
+                alert("1.Error: " + err.message);
+            });
+            
+            
+        }
         //if(!$.trim($("#tareas").html())) {
         
         $('#tareas').remove();
@@ -47,10 +108,6 @@ app.homeView = kendo.observable({
         var $ulTareas = $('<ul id="tareas" style="font-size:0.9em;"></ul>');
 			$("#vista_tareas").append($ulTareas);
         
-        var baseDir = baseUrl();
-        var puerto = basePort();
-        var protocolo = baseProtocol();
-		
 		var urls = protocolo+"://"+baseDir+":" + puerto +"/upp-restful/api/solicitudes/tareas/"+codi;
 		
        
@@ -719,8 +776,7 @@ function basePort() {
 }
 
 function baseProtocol() {
-    //return 'https';
-    return 'http';
+    return 'http'; //http o https
 }
 
 function onPushNotificationReceived(e) {
