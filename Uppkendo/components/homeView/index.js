@@ -771,14 +771,27 @@ function baseUrl() {
 }
 
 function basePort() {
-    //return '6443';
-    return '6081';
+    return '6443';
+    //return '8081';
 }
 
 function baseProtocol() {
-    return 'http'; //http o https
+    return 'https'; //http o https
 }
 
 function onPushNotificationReceived(e) {
-    alert(JSON.stringify(e));
+    alert("UPP - "+e.data.title + '\n' + e.data.message);
+    
+    var codi = localStorage.getItem('codi');
+    
+    if(!codi) {
+		kendo.history.navigate("#components/homeView/loginView.html");
+	}
+    
+    if(e.badge > 0)
+    {
+        alert(e.badge);
+        kendo.history.navigate("#components/homeView/tareaView.html?solicitudId="+e.badge);
+    }
+		
 };
