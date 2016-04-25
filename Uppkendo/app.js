@@ -35,7 +35,7 @@
                     });
                 }
             }
-            //console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
+            console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
             
             bootstrap();
         }, false);
