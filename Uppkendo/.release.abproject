@@ -1,7 +1,5 @@
 {
   "CorePlugins": [
-    "com.phonegap.plugins.PushPlugin@3.1.1",
-    "com.synconset.imagepicker@2.1.2",
     "cordova-plugin-camera",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
@@ -14,6 +12,8 @@
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
     "cordova-plugin-whitelist",
+    "com.phonegap.plugins.PushPlugin@3.1.1",
+    "com.synconset.imagepicker@2.1.2",
     "nl.x-services.plugins.toast@2.5.0"
   ]
 }
