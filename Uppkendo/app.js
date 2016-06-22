@@ -10,7 +10,6 @@
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
                 //platform:'ios7',
-                transition: 'slide',
 				layout:"mobile-tabstrip",
                 initial: 'components/homeView/view.html',
             });
@@ -35,13 +34,15 @@
                     });
                 }
             }
-            console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
+            //console.log(cordova.file); //esta linea evita que la pantalla se quede en blanco cuando la app esta firmada
             
             bootstrap();
         }, false);
     } else {
         bootstrap();
     }
+    
+    
     if (kendo.support.mobileOS.android) {
         $(document).on({
             ajaxStart: function() {

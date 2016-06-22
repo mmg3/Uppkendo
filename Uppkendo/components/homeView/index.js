@@ -17,29 +17,8 @@ app.homeView = kendo.observable({
 			return;
 		}
         
-        /*var networkState = navigator.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN] = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI] = 'WiFi connection';
-        states[Connection.CELL_2G] = 'Cell 2G connection';
-        states[Connection.CELL_3G] = 'Cell 3G connection';
-        states[Connection.CELL_4G] = 'Cell 4G connection';
-        states[Connection.CELL] = 'Cell generic connection';
-        states[Connection.NONE] = 'No network connection';
-
-        $('#sp_connection_type').text(states[networkState] + " " + device_language);
-
-        if (states[networkState] == 'No network connection') {
-            navigator.notification.alert(
-                'Sin acceso a internet!',
-                oppenSettings,
-                'Network ',
-                'OK'
-            );
+        if(estadoRed() == false)
             return;
-        }*/
         
         var baseDir = baseUrl();
         var puerto = basePort();
@@ -167,7 +146,8 @@ app.tareaView = kendo.observable({
     onShow: function(e) {
 		var hash = localStorage.getItem('hash');
 		var codi = localStorage.getItem('codi');
-		
+		document.getElementById("upload").addEventListener("click", subeImagen);
+        
 		if(!codi) {
 			//alert('redirecting...');
 			//var app = new kendo.mobile.Application();
@@ -286,7 +266,7 @@ app.loginView = kendo.observable({
     onShow: function() {
 		var hash = localStorage.getItem('hash');
 		var codi = localStorage.getItem('codi');
-		
+        
 		if(codi) {
 			//alert('redirecting...');
 			//var app = new kendo.mobile.Application();
@@ -310,7 +290,13 @@ app.loginView = kendo.observable({
             
             var baseDir = baseUrl();
             var puerto = basePort();
-        var protocolo = baseProtocol();
+            var protocolo = baseProtocol();
+            
+            if(estadoRed() == false) {
+                window.plugins.toast.showShortBottom('Conexion a internet no detectada, verifique su configuración.');
+                return;
+            }
+                
             
 			var urls = protocolo+'://'+baseDir+':'+puerto+'/upp-restful/api/usuarios/login/'+user+'/'+pass;
 			//alert(urls);
@@ -329,7 +315,8 @@ app.loginView = kendo.observable({
 							localStorage.setItem('hash',data.hash);
 							localStorage.setItem('codi',data.codi);
                             localStorage.setItem('id',data.id);
-							//window.plugins.toast.showShortBottom('Bienvenid@ ' + data.codi);
+                            //alert('Bienvenid@ ' + data.codi);
+							window.plugins.toast.showShortBottom('Bienvenid@ ' + data.codi);
 							//window.location="main.html";
 							kendo.history.navigate("#components/homeView/view.html");
 						}
@@ -337,22 +324,23 @@ app.loginView = kendo.observable({
 						{
 							$('#password').val('');
 							//alert('Verifique los datos de acceso.');
-							window.plugins.toast.showShortBottom('Verifique los datos de acceso.')
+							window.plugins.toast.showShortBottom('Verifique los datos de acceso.');
 						}
 					}
 					catch(ex)
 					{
 						//alert('Error al procesar la solicitud: '+ex.description);
-						window.plugins.toast.showShortBottom('Error al procesar la información.')
+						window.plugins.toast.showShortBottom('Error al procesar la información.');
 						//$("#cedula").val('');
 					}
 				},
 				error: function( xhr, textStatus, errorThrown ) {
-							window.plugins.toast.showShortBottom('Error al procesar la información.')
-							console.log( "HTTP Status: " + xhr.status );
-							console.log( "Error textStatus: " + textStatus );
-							console.log( "Error thrown: " + errorThrown );
-							return;
+                    //alert('Error al procesar la información.');
+					window.plugins.toast.showShortBottom('Error al procesar la información.');
+					console.log( "HTTP Status: " + xhr.status );
+					console.log( "Error textStatus: " + textStatus );
+					console.log( "Error thrown: " + errorThrown );
+					return;
 				}
 			});
 		}
@@ -765,33 +753,126 @@ app.logoutView = kendo.observable({
 * ------------------------------------------------------- */
 
 function baseUrl() {
-    return 'confiaenlineaec.com';
+    //return 'confiaenlineaec.com';
     //return '192.168.0.13';
-    //return '192.168.0.171';
+    return '192.168.0.171';
 }
 
 function basePort() {
-    return '6443';
-    //return '8081';
+    //return '6443';
+    return '8081';
 }
 
 function baseProtocol() {
-    return 'https'; //http o https
+    return 'http'; //http o https
 }
 
-function onPushNotificationReceived(e) {
-    alert("UPP - "+e.data.title + '\n' + e.data.message);
+/*function onPushNotificationReceived(e) {
+    //alert("UPP - "+e.data.title + '\n' + e.data.message);
     
     var codi = localStorage.getItem('codi');
     
     if(!codi) {
 		kendo.history.navigate("#components/homeView/loginView.html");
 	}
-    
+    alert(e.badge);
     if(e.badge > 0)
     {
         alert(e.badge);
         kendo.history.navigate("#components/homeView/tareaView.html?solicitudId="+e.badge);
+    }*/
+	
+    /*navigator.notification.alert(
+                       e.data.message, // message
+                       function() {
+                           //alert(e.data.badge);
+                           kendo.history.navigate("#components/homeView/tareaView.html?solicitudId="+e.badge);
+                       }, // callback
+                       e.data.title
+                   );
+    	
+};*/
+
+function subeImagen() {
+    window.imagePicker.getPictures(
+    function(results) {
+        for (var i = 0; i < results.length; i++) {
+            console.log('Imagen Base64: ' + results[i]);
+        }
+    }, function (error) {
+        console.log('Error: ' + error);
+    }, {
+        maximumImagesCount: 1, //default 15
+        outputType: 1 // default 0
     }
-		
-};
+);
+}
+
+function hasReadPermission() {
+    window.imagePicker.hasReadPermission(
+        function(result) {
+            if(result == false) {
+                requestReadPermission();
+            }
+        }
+    )
+}
+
+function requestReadPermission() {
+    // no callbacks required as this opens a popup which returns async
+    window.imagePicker.requestReadPermission();
+}
+
+function estadoRed() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN] = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI] = 'WiFi connection';
+    states[Connection.CELL_2G] = 'Cell 2G connection';
+    states[Connection.CELL_3G] = 'Cell 3G connection';
+    states[Connection.CELL_4G] = 'Cell 4G connection';
+    states[Connection.CELL] = 'Cell generic connection';
+    states[Connection.NONE] = 'No network connection';
+
+    //$('#sp_connection_type').text(states[networkState] + " " + device_language);
+    //alert(states[networkState]);
+    if (states[networkState] == 'No network connection') {
+        /*navigator.notification.alert(
+            'Por favor verifique su conexión a internet!',
+            oppenSettings,
+            'Network ',
+            'OK'
+        );*/
+        return false;
+    }
+    
+    return true;
+}
+
+function onPushNotificationReceived(e) {
+        alert("UPP - "+e.data.title + '\n' + e.data.message);
+        
+        /*var codi = localStorage.getItem('codi');
+        
+        if(!codi) {
+    		kendo.history.navigate("#components/homeView/loginView.html");
+    	}
+        alert(e.badge);
+        if(e.badge > 0)
+        {
+            alert(e.badge);
+            kendo.history.navigate("#components/homeView/tareaView.html?solicitudId="+e.badge);
+        }*/
+    	
+        /*navigator.notification.alert(
+                           e.data.message, // message
+                           function() {
+                               //alert(e.data.badge);
+                               kendo.history.navigate("#components/homeView/tareaView.html?solicitudId="+e.badge);
+                           }, // callback
+                           e.data.title
+                       );*/
+        	
+    };
