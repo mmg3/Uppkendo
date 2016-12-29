@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <JustDevelopSettings>
   <CodesigningIdentitySettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <MobileProjectCodesigningIdentities xmlns:d2p1="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Common.Data" />
+    <MobileProjectCodesigningIdentities xmlns:d2p1="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Common.Data">
+      <d2p1:Project>
+        <d2p1:Identifier>Uppkendo</d2p1:Identifier>
+        <d2p1:CodesigningIdentities>
+          <d2p1:Identity>
+            <d2p1:Platform>iOS</d2p1:Platform>
+            <d2p1:Alias>iPhone Developer Guido Guerrero (SU94974GDJ)</d2p1:Alias>
+          </d2p1:Identity>
+        </d2p1:CodesigningIdentities>
+      </d2p1:Project>
+    </MobileProjectCodesigningIdentities>
   </CodesigningIdentitySettings>
   <MobileProjectProvisionSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <MobileProjectProvisionNames xmlns:d2p1="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Common.Data" />
+    <MobileProjectProvisionNames xmlns:d2p1="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Common.Data">
+      <d2p1:Project>
+        <d2p1:Identifier>Uppkendo</d2p1:Identifier>
+        <d2p1:MobileProvision>e4f3291b-fc1e-4eae-b758-f4a161c46dd7</d2p1:MobileProvision>
+      </d2p1:Project>
+    </MobileProjectProvisionNames>
   </MobileProjectProvisionSettings>
   <SolutionSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Telerik.BlackDragon.Client.Modules.Settings">
     <BuildConfiguration>Debug</BuildConfiguration>
