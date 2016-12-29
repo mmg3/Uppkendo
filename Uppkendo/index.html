@@ -4,13 +4,12 @@
 <head>
     <title></title>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
 
-    <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
 
     <script src="cordova.js"></script>
-    <script src="https://bs-static.cdn.telerik.com/1.6.8/everlive.all.min.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
@@ -26,7 +25,7 @@
         </header>
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
-                <a href="components/homeView/view.html" data-icon="home">Home View</a>
+                <a href="components/homeView/view.html" data-icon="home"><span class="navigation-link-text" data-bind="text: strings.homeView.title"></span></a>
             </div>
         </footer>
     </div>
@@ -40,6 +39,12 @@
         <footer data-role="footer">
         </footer>
     </div>
+    <div id="notify" class="notify-pop-up">
+        <span class="notify-pop-up__content"></span>
+    </div>
+    <!--  start index html save -->
+    <!--  end index html save -->
+
     <!-- START_CUSTOM_CODE_uppkendo -->
     <div data-role="drawer" id="mainMenu" data-swipe-to-open="false">
         <h1><span data-role="view-title" style="text-align:center;">Bienvenid@ <label id="usuario_nombre"></label></span></h1>
