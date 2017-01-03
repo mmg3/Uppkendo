@@ -1,0 +1,10 @@
+{
+  "_app": {
+    "navigationMore": "More",
+    "showMoreTitle": "Show More",
+    "qrCodeScan": "Scan"
+  },
+  "homeView": {
+    "title": "Home View"
+  }
+}
